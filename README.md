@@ -14,7 +14,7 @@ Oyuncuya gösterilen haritada hiç açılmamış kutucukları "-" sembolü ile g
 
 Mayınlar "*" sembolü ile gösterilmektedir.
 
-Kullanıcı matris üzerinden bir nokta seçmiyor, nokta seçimi için satır ve sütun değerlerini girmektedir.
+Kullanıcı matris üzerinden bir nokta seçiyor, nokta seçimi için satır ve sütun değerlerini girmektedir.
 
 Kullanıcının girdiği noktada mayın var ise oyunu kaybettiği mesajı alıyor.
 
