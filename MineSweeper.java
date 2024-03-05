@@ -3,7 +3,7 @@ package MineSweeper;
 import java.util.Random;
 import java.util.Scanner;
 
-public class MineSweeper {
+public class MineSweeper { // Değerlendirme formu 5
 
     // Gerekli değişkenlerin tanımlanması
     Scanner input = new Scanner(System.in);
@@ -14,14 +14,15 @@ public class MineSweeper {
     String[][] frame;// Kullanıcıya gösterilecek oyun alanını tutar
     int mineNumber; // Toplam mayın sayısı
 
+    // Değerlendirme formu 6
     public void run() {
-        // Oyun başlangıcında kullanıcıdan oyun alanının boyutlarını alır
         System.out.println(" *** Welcome to Minesweeper Game *** ");
         System.out.print("Number of Row    : ");
-        row = input.nextInt(); // Satır sayısı
+        row = input.nextInt(); // Değerlendirme formu 7
 
         System.out.print("Number of Column : ");
-        column = input.nextInt(); // Sütun sayısı
+        column = input.nextInt(); // Değerlendirme formu 7
+
         // Mayın sayısını hesaplar, toplam hücre sayısının çeyreği kadardır.
         mineNumber = (row * column) / 4;
 
@@ -38,31 +39,32 @@ public class MineSweeper {
         }
 
         while (mineNumber > 0) { // Mayın sayısı kadar döngü çalışmaya devam eder
-            int rowMineNumber = randomMineNumber.nextInt(row); // satır sayısı büyüklüğü kadar rastgele sayı üretir.
-            int columnMineNumber = randomMineNumber.nextInt(column); // sütun sayısı büyüklüğü kadar rastgele sayı
-                                                                     // üretir.
 
-            if (map[rowMineNumber][columnMineNumber].equals("-")) {
-                map[rowMineNumber][columnMineNumber] = "*"; // üretilen satır ve sütun sayısına denk gelen kısımlara
-                                                            // mayınlar yerleştirilir.
+            int rowMineNumber = randomMineNumber.nextInt(row); // Değerlendirme formu 8
+            int columnMineNumber = randomMineNumber.nextInt(column); // Değerlendirme formu 8
+
+            if (map[rowMineNumber][columnMineNumber].equals("-")) { // Değerlendirme formu 8
+                map[rowMineNumber][columnMineNumber] = "*"; // Değerlendirme formu 8
+
                 mineNumber--; // mayın yerleştirildikçe azaltılır ve bitene kadar bu döngü devam eder.
             }
 
         }
 
-        printFrame(); // Oyun çerçevesini gösterir.
+        printFrame(); // Değerlendirme formu 11
         playCheck(); // playCheck metodunu çağırdık ve oyunu başlattık.
     }
 
+    // Değerlendirme formu 6
     public void playCheck() {
         boolean finish = false;
         // Mayına basmadığı sürece kullanıcıdan işaretlemesi gereken satır ve sütun
         // sorulacaktır.
         while (!finish) {
             System.out.print("Number of Row    : ");
-            int selectedRow = input.nextInt();
+            int selectedRow = input.nextInt(); // Değerlendirme formu 9
             System.out.print("Number of Column : ");
-            int selectedColumn = input.nextInt();
+            int selectedColumn = input.nextInt(); // Değerlendirme formu 9
 
             // Seçilen hücrenin çevresindeki mayın sayısını tutacak değişken
             int mineNumber = 0;
@@ -74,11 +76,11 @@ public class MineSweeper {
                     // öğrenebilmek için).
                     for (int i = selectedRow - 1; i < selectedRow + 2; i++) {
                         for (int j = selectedColumn - 1; j < selectedColumn + 2; j++) {
-                            // Eğer çevredeki hücre geçerli bir hücreyse ve mayın içeriyorsa
+                            // Değerlendirme formu 10
                             if (i >= 0 && j >= 0 && i < row && j < column && map[i][j].equals("*")) {
                                 // Mayın sayısını arttır.
                                 mineNumber++;
-                                // Hesaplanan mayın sayısı, seçilen hücreye yazılır.
+                                // Değerlendirme formu 12
                                 frame[selectedRow][selectedColumn] = Integer.toString(mineNumber);
                             } else {
                                 frame[selectedRow][selectedColumn] = Integer.toString(mineNumber);
@@ -86,19 +88,23 @@ public class MineSweeper {
 
                         }
                     }
-                    // Oyun alanı yeniden yazdırılır son hali ile
+
+                    // Değerlendirme formu 11
                     printFrame();
 
-                    // Oyunun kazanılıp kazanılmadığı kontrol edilir.
+                    // Değerlendirme formu 6
                     if (!checkWin()) {
-                        // Eğer kazanılmışsa, kazanma mesajı gösterilir ve oyun bitirilir.
+                        // Değerlendirme formu 15
                         System.out.println("Congratulations! You won the game...");
                         printMap();
                         finish = true;
                     }
 
+                    // Değerlendirme formu 6
+                    // Değerlendirme formu 13
                 } else if (map[selectedRow][selectedColumn].equals("*")) {
                     // Eğer seçilen hücre mayınsa, kaybetme mesajı gösterilir ve oyun bitirilir.
+                    // Değerlendirme formu 15
                     System.out.println("You lost. You stepped on a mine.!! ");
                     printMap();
                     finish = true;
@@ -161,6 +167,7 @@ public class MineSweeper {
         // Eğer boş hücre sayısı mayınlı hücre sayısına eşitse, tüm boş hücreler açılmış
         // demektir
         // bu da kazanılmış demekttir
+        // Değerlendirme formu 14
         if (emptyCell == minedCell) {
             return false;
         }
