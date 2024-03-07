@@ -1,6 +1,6 @@
 # Mayın Tarlası Oyunu Projesi
 
-Java dilinde yazılan metin tabanlı bir mayın tarlası oyunudur.
+Kullanılan Teknolojiler: Java 21
 
 Proje çift boyutlu diziler kullanılarak yapıldı
 
