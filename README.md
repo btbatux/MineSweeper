@@ -1,6 +1,8 @@
 # Mayın Tarlası Oyunu Projesi
 
-Kullanılan Teknolojiler: Java 21
+Kullanılan Teknolojiler: 
+Java 21
+Java SE
 
 Proje çift boyutlu diziler kullanılarak yapıldı
 
